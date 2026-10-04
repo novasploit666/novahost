@@ -1,0 +1,39 @@
+[build-system]
+requires = ["setuptools>=77", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "novahost"
+version = "0.1.0"
+description = "A local-first file hosting and rendering CLI for Linux and Windows"
+readme = "README.md"
+requires-python = ">=3.10"
+license = "MIT"
+license-files = ["LICENSE"]
+authors = [{ name = "NovaHost contributors" }]
+dependencies = [
+  "markdown-it-py>=3.0,<5",
+  "mdit-py-plugins>=0.4,<0.6",
+  "pygments>=2.17,<3",
+]
+classifiers = [
+  "Development Status :: 3 - Alpha",
+  "Environment :: Console",
+  "Intended Audience :: Developers",
+  "Operating System :: POSIX :: Linux",
+  "Operating System :: Microsoft :: Windows",
+  "Programming Language :: Python :: 3",
+  "Topic :: Internet :: WWW/HTTP :: HTTP Servers",
+  "Topic :: Utilities",
+]
+[project.optional-dependencies]
+test = ["pytest>=9.0.3,<10"]
+
+[project.scripts]
+novahost = "novahost.cli:main"
+
+[tool.setuptools.packages.find]
+include = ["novahost*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
